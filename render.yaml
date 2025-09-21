@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: alex-nextjs-site
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    region: oregon
+    branch: main
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_APPWRITE_URL
+        sync: false
+      - key: NEXT_PUBLIC_APPWRITE_PROJECT_ID
+        sync: false
+      - key: NEXT_PUBLIC_APPWRITE_DATABASE_ID
+        sync: false
+      - key: NEXT_PUBLIC_APPWRITE_STORAGE_ID
+        sync: false
+      - key: NEXT_PUBLIC_APPWRITE_VIDEOS_COLLECTION_ID
+        sync: false
+      - key: NEXT_PUBLIC_APPWRITE_PAYMENT_PROOFS_COLLECTION_ID
+        sync: false
+      - key: NEXT_PUBLIC_APPWRITE_SITE_CONFIG_COLLECTION_ID
+        sync: false
