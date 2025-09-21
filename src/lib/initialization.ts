@@ -217,7 +217,7 @@ export class InitializationService {
         await MetadataService.saveGenericMetadata('system', testData, 'test')
         const loadedData = await MetadataService.loadGenericMetadata('system', 'test')
         
-        if (!loadedData || loadedData.test !== true) {
+        if (!loadedData || (loadedData as { test: boolean }).test !== true) {
           throw new Error('Sistema de metadados não está funcionando corretamente')
         }
 
