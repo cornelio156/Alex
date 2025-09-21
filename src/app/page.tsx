@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Eye, Clock, Play, MessageCircle, CreditCard, DollarSign, User, Calendar, AlertTriangle, Settings } from 'lucide-react'
 import { useSiteConfig } from '@/context/SiteConfigContext'
 import { usePaymentProofs } from '@/context/PaymentProofContext'
