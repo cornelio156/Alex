@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MetadataService, VideoMetadata } from '@/lib/metadata'
+import { VideoMetadata } from '@/lib/metadata'
 import { Video } from '@/types/video'
 import { useWasabiConfig } from '@/context/WasabiConfigContext'
 
@@ -44,10 +44,10 @@ export const useVideos = (): UseVideosReturn => {
 
       // Filtrar apenas vídeos publicados e ordenar por data de upload
       const publishedVideos = data.videos
-        .filter((metadata: any) => metadata.status === 'published')
-        .sort((a: any, b: any) => new Date(b.uploadDate || '').getTime() - new Date(a.uploadDate || '').getTime())
+        .filter((metadata: VideoMetadata) => metadata.status === 'published')
+        .sort((a: VideoMetadata, b: VideoMetadata) => new Date(b.uploadDate || '').getTime() - new Date(a.uploadDate || '').getTime())
 
-      const loaded: Video[] = publishedVideos.map((metadata: any) => ({
+      const loaded: Video[] = publishedVideos.map((metadata: VideoMetadata) => ({
         id: metadata.id,
         title: metadata.title,
         description: metadata.description,

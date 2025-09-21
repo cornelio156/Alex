@@ -2,7 +2,6 @@
 
 import { useState, useEffect, createContext, useContext, ReactNode } from 'react'
 import { AuthService, User } from '@/lib/auth'
-import { InitializationService } from '@/lib/initialization'
 import { useWasabiConfig } from '@/context/WasabiConfigContext'
 
 interface AuthContextType {
@@ -33,7 +32,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isInitialized, setIsInitialized] = useState(false)
-  const { isConfigured: isWasabiConfigured, loading: wasabiConfigLoading } = useWasabiConfig()
+  const { } = useWasabiConfig()
 
   // Verificar se o usuário está logado
   const isAuthenticated = !!user
